@@ -1,0 +1,40 @@
+<div class="bg-white space-y-6 p-5 shadow rounded border">
+    <div class="space-y-1 text-center">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Dunder_Mifflin%2C_Inc.svg/1024px-Dunder_Mifflin%2C_Inc.svg.png" class="w-32 mx-auto mb-2">
+        <h2 class="text-xl font-semibold">Log in to your Account</h2>
+        <p class="text-sm">Welcome Back!</p>
+    </div>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field mb-3">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Email", class:"w-80 rounded" %>
+    </div>
+
+    <div class="field mb-3">
+        <%= f.password_field :password, autocomplete: "current-password", placeholder:"Password", class:"w-80 rounded" %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+        <div class="flex justify-between">
+        <div class="field flex flex-row items-center gap-2">
+        <%= f.check_box :remember_me, class:"rounded focus:outline-none" %>
+        <%= f.label :remember_me %>
+        </div>
+        <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+            <%= link_to "Forgot Password?", new_password_path(resource_name), class:"text-blue-400 hover:underline" %>
+        <% end %>
+        </div>
+    <% end %>
+
+    <div class="actions">
+        <%= f.submit "Log in", class:"w-full text-center bg-blue-500 py-2 mt-7 text-white rounded hover:bg-blue-800 transition duration-300" %>
+    </div>
+    <% end %>
+
+    <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+        <p>
+            Don't have an account?
+            <%= link_to "Create an account", new_registration_path(resource_name), class:"text-blue-400 hover:underline" %>
+        </p>
+    <% end %>
+</div>
