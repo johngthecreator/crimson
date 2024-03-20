@@ -1,6 +1,8 @@
 ## 📌 Overview
 
-Crimson is an open-source component library for Ruby on Rails styled with TailwindCSS. As opposed to installing gems for different components, just copy and paste the files or code that you need! (But in the future, a gem install would be ideal 🙂) This project is largely focused on creating styled versions of components we really hate styling (i.e. login forms, signups, etc.)
+Crimson is an open-source UI library for Ruby on Rails styled with TailwindCSS. As opposed to installing gems for different components, just copy and paste the files or code that you need! (Currently working on a cli tool to make adding files easier) This project is largely focused on creating styled versions of UIs we really hate styling (i.e. login forms, signups, etc.)
+
+### Warning: These UIs are BORING. PLEASE STYLE THEM.
 
 ## ☁️ Head In The Clouds
 
@@ -10,8 +12,8 @@ Message me on X: [@john_gorri](https://twitter.com/john_gorri) or tag me in your
 
 ## Component Roadmap
 
-1. Devise Views (Login, Signup, etc.)
-2. Navigation Bar
+1. Devise Views (Login, Signup, etc.) 📝
+2. Navigation Bar ✅
 3. Form Partials
 
 ## Contribution
