@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Crimson</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="h-screen w-full flex flex-col">
+    <!-- These are the notices and alerts -->
+    <% unless notice.blank? %>
+        <p class="notice text-center font-medium p-2"><%= notice %></p>
+    <% end %>
+    <% unless alert.blank? %>
+        <p class="alert text-center font-medium p-2"><%= alert %></p>
+    <% end %>
+    <header class="w-full">
+        <!-- The background color and text-color defined in the nav tag affect the entire menu -->
+        <nav class="bg-red-700 items-center border-b-2 border-red-700 border-solid text-white">
+            <div class="flex items-center p-3 justify-between max-w-screen-xl mx-auto">
+                <!-- Main Header and Links -->
+                <a href="/">
+                    <!-- You can change this to an img logo if needed -->
+                    <h2 class="font-black text-2xl">crimson</h2>
+                    <!-- --------- -->
+                </a>
+                <div class="hidden sm:ml-6 sm:flex space-x-4 justify-items-center justify-center">
+                    <a class="font-medium">link</a>
+                    <a class="font-medium">link</a>
+                    <a class="font-medium">link</a>
+                    <a class="font-medium">link</a>
+                </div>
+                <!-- -------- -->
+            <!-- Mobile menu button-->
+                <div class="flex items-center justify-center sm:hidden">
+                    <button type="button" onclick="openMenu()" class="relative inline-flex items-center justify-center rounded-md focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="absolute -inset-0."></span>
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-8 w-8" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                        <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <!-- -------- -->
+            </div>
+
+            <!-- Mobile menu dropdown -->
+            <div class="sm:hidden transition-all ease-in-out duration-300 opacity-0 max-h-0 overflow-hidden" id="mobile-menu">
+                <div class="space-y-3 p-4 flex flex-col md:flex-row">
+                    <a class="font-medium text-xl">Link</a>
+                    <a class="font-medium text-xl">Link</a>
+                    <a class="font-medium text-xl">Link</a>
+                    <a class="font-medium text-xl">Link</a>
+                </div>
+            </div>
+            <!-- ---------- -->
+          </div>
+        </nav>
+    </header>
+
+    <main class="flex w-full h-full items-center justify-center">
+      <%= yield %>
+    </main>
+
+    <script>
+    function openMenu() {
+      let mobi = document.getElementById("mobile-menu");
+      if (mobi.classList.contains('opacity-0')) {
+        mobi.classList.remove('opacity-0', 'max-h-0');
+        mobi.classList.add('opacity-100', 'max-h-screen');
+      } else {
+        mobi.classList.replace('opacity-100', 'opacity-0');
+        mobi.classList.replace('max-h-screen', 'max-h-0');
+      }
+    }
+    </script>
+  </body>
+</html>
